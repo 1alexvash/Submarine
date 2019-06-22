@@ -88,18 +88,18 @@ function checkTouching(a, b) {
     switch (b.objectRef.type) {
       case "ROCK":
         objects.splice(objects.indexOf(myObject), 1);
+        playSound(boomSound);
         submarine.hearts--;
         if (submarine.hearts === 0) {
-          // alert("Gave Over"); Call function End Game
-          clearInterval(timer);
+          endGame();
         }
         break;
       case "FIRE":
         objects.splice(objects.indexOf(myObject), 1);
+        playSound(boomSound);
         submarine.hearts--;
         if (submarine.hearts === 0) {
-          // alert("Gave Over"); Call function End Game
-          clearInterval(timer);
+          endGame();
         }
         break;
       case "COIN":
@@ -109,10 +109,12 @@ function checkTouching(a, b) {
         break;
       case "EXTRA_HEART":
         objects.splice(objects.indexOf(myObject), 1);
+        playSound(heartSound);
         submarine.hearts++;
         break;
       case "DIAMOND":
         objects.splice(objects.indexOf(myObject), 1);
+        playSound(congratulationsSound);
         score += 25000;
         break;
       default:

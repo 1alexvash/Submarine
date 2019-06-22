@@ -51,3 +51,7 @@ function startGame() {
     updateAll();
   }, 1000 / framesPerSecond);
 }
+
+function endGame() {
+  clearInterval(timer);
+}
