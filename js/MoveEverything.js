@@ -13,6 +13,16 @@ function moveSubmarine() {
   ) {
     submarine.y += submarine.speed;
   }
+
+  if (submarine.controllers.arrowLeftLocked && submarine.x > 50) {
+    submarine.x -= submarine.speed;
+  }
+  if (
+    submarine.controllers.arrowRightLocked &&
+    submarine.x < canvas.width - 200
+  ) {
+    submarine.x += submarine.speed;
+  }
 }
 
 function moveObjects() {

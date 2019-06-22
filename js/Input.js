@@ -5,6 +5,12 @@ document.addEventListener("keydown", function(e) {
   if (e.key === "ArrowDown") {
     submarine.controllers.arrowDownLocked = true;
   }
+  if (e.key === "ArrowLeft") {
+    submarine.controllers.arrowLeftLocked = true;
+  }
+  if (e.key === "ArrowRight") {
+    submarine.controllers.arrowRightLocked = true;
+  }
 });
 
 document.addEventListener("keyup", function(e) {
@@ -13,5 +19,11 @@ document.addEventListener("keyup", function(e) {
   }
   if (e.key === "ArrowDown") {
     submarine.controllers.arrowDownLocked = false;
+  }
+  if (e.key === "ArrowLeft") {
+    submarine.controllers.arrowLeftLocked = false;
+  }
+  if (e.key === "ArrowRight") {
+    submarine.controllers.arrowRightLocked = false;
   }
 });

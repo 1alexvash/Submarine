@@ -6,6 +6,8 @@ const submarine = {
   speed: 3,
   controllers: {
     arrowUpLocked: false,
-    arrowDownLocked: false
+    arrowDownLocked: false,
+    arrowLeftLocked: false,
+    arrowRightLocked: false
   }
 };
