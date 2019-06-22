@@ -1,0 +1,40 @@
+.settings {
+  background: white;
+  font-size: 20px;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  width: 800px;
+  margin: auto;
+  padding: 20px;
+  @include responsive(800px, 800px) {
+    display: none;
+  }
+  section {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid black;
+    margin: 10px 0;
+    padding: 10px;
+    p {
+      // width: 100%;
+    }
+    input {
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+    }
+  }
+  .restore {
+    text-align: center;
+    padding: 10px;
+    button {
+      cursor: pointer;
+      font-size: 14px;
+      border: 2px solid black;
+      padding: 10px;
+      display: inline-block;
+      background: red;
+      color: white;
+      text-shadow: 0 0 5px black;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+@import "reset";
+@import "responsive";
+
+body {
+  background: black;
+}
+
+@import "./components/preloader";
+@import "./components/canvas";
+@import "./components/mobile-warning";
+@import "./components/settings";
