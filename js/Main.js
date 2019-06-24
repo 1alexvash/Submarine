@@ -64,7 +64,7 @@ function startGame() {
   }, 1000 / framesPerSecond);
 }
 
-const waterSounds = new Audio("./../sounds/watersounds.mp3");
+const waterSounds = new Audio("./sounds/watersounds.mp3");
 
 function playMusic() {
   if (SETTINGS.MUSIC) {
@@ -99,5 +99,5 @@ function endGame() {
   const menu = $(".menu");
   menu.classList += " active";
 
-  renderHomeScreen(); // not working for some reason
+  renderHomeScreen();
 }
