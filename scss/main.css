@@ -22,6 +22,68 @@ input {
 
 body {
   background: black;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.menu {
+  position: absolute;
+  padding: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, -100%);
+          transform: translate(-50%, -100%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-animation: showMenu 2s;
+          animation: showMenu 2s;
+  -webkit-transition: 2s;
+  transition: 2s;
+  opacity: 0;
+}
+
+.menu.active {
+  opacity: 1;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+}
+
+@-webkit-keyframes showMenu {
+  from {
+    -webkit-transform: translate(-50%, -100%);
+            transform: translate(-50%, -100%);
+  }
+  to {
+    -webkit-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+  }
+}
+
+@keyframes showMenu {
+  from {
+    -webkit-transform: translate(-50%, -100%);
+            transform: translate(-50%, -100%);
+  }
+  to {
+    -webkit-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+  }
+}
+
+.menu a {
+  padding: 20px;
+  text-align: center;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(deepskyblue));
+  background: linear-gradient(white, deepskyblue);
+}
+
+.menu a img {
+  width: 64px;
+}
+
+.menu a p {
+  padding: 10px 0;
+  font-size: 20px;
+  color: white;
 }
 
 .preloader {
@@ -32,51 +94,70 @@ body {
   height: 100%;
   background: transparent;
   z-index: 1;
-  -webkit-animation: Preloader 10s;
-          animation: Preloader 10s;
+  background: black;
 }
 
-@-webkit-keyframes Preloader {
-  from {
-    background: #000;
-  }
-  50% {
-    background: white;
-  }
-  to {
-    background: transparent;
-  }
-}
-
-@keyframes Preloader {
-  from {
-    background: #000;
-  }
-  50% {
-    background: white;
-  }
-  to {
-    background: transparent;
-  }
-}
-
-.preloader .play {
-  cursor: pointer;
-  position: absolute;
+.preloader .content {
+  position: relative;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  border: 2px solid white;
-  border-radius: 50%;
-  padding: 20px 30px;
-  font-size: 36px;
-  color: white;
-  background: black;
+  width: 300px;
+  background: white;
 }
 
-.preloader .play:focus {
-  outline: none;
+.preloader .content img {
+  width: 100%;
+  display: block;
+}
+
+.preloader .content p {
+  position: relative;
+  padding: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  text-shadow: 0 0 5px deepskyblue;
+  background: black;
+  color: deepskyblue;
+  text-align: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  z-index: 1;
+}
+
+.preloader .content p:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: -1;
+  -webkit-animation: Loading 10s;
+          animation: Loading 10s;
+}
+
+@-webkit-keyframes Loading {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes Loading {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 canvas {
@@ -128,7 +209,6 @@ canvas {
     border-radius: 8px;
   }
   .mobile-warning .content p {
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     font-size: 20px;
     line-height: 30px;
     color: white;
@@ -160,7 +240,6 @@ canvas {
     border-radius: 8px;
   }
   .mobile-warning .content p {
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     font-size: 20px;
     line-height: 30px;
     color: white;
@@ -173,7 +252,6 @@ canvas {
 .settings {
   background: white;
   font-size: 20px;
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   width: 800px;
   margin: auto;
   padding: 20px;
@@ -223,4 +301,70 @@ canvas {
   background: red;
   color: white;
   text-shadow: 0 0 5px black;
+}
+
+.shop {
+  background: white;
+  font-size: 20px;
+  width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+@media (max-width: 800px) {
+  .shop {
+    display: none;
+  }
+}
+
+@media (max-height: 800px) {
+  .shop {
+    display: none;
+  }
+}
+
+.shop .money img {
+  width: 20px;
+}
+
+.shop .upgrades section {
+  border-bottom: 2px solid black;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.shop .upgrades section.active {
+  background: -webkit-gradient(linear, left top, left bottom, from(green), to(lightgreen));
+  background: linear-gradient(green, lightgreen);
+}
+
+.shop .upgrades section .icon,
+.shop .upgrades section .desc,
+.shop .upgrades section .price,
+.shop .upgrades section .buy {
+  width: 25%;
+}
+
+.shop .upgrades section .icon img {
+  width: 48px;
+}
+
+.shop .upgrades section .desc {
+  font-size: 16px;
+}
+
+.shop .upgrades section .buy button {
+  cursor: pointer;
+  padding: 10px;
+  border: 2px solid black;
+  background: -webkit-gradient(linear, left top, left bottom, from(green), to(lightgreen));
+  background: linear-gradient(green, lightgreen);
 }

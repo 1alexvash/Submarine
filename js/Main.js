@@ -1,4 +1,4 @@
-const canvas = document.getElementById("canvas");
+const canvas = $("#canvas");
 const context = canvas.getContext("2d");
 let timer;
 
@@ -6,29 +6,32 @@ const framesPerSecond = 30;
 
 let objects = [];
 
-// DEV ONLY
-startGame();
-// DEV ONLY
-
-window.onload = function() {
-  // startGame();
-
-  context.fillStyle = "white";
-  context.fillRect(0, 0, canvas.width, canvas.height);
+function renderHomeScreen() {
+  clearCanvas();
 
   context.font = "40px Arial";
   context.fillStyle = "black";
   context.textAlign = "center";
   context.fillText("Click To Start", canvas.width / 2, canvas.height / 2);
+}
+
+window.onload = function() {
+  renderHomeScreen();
+
+  if (JSON.parse(localStorage.upgrades)[1].bought === true) {
+    submarine.speed *= 1.25;
+  }
 
   canvas.addEventListener("click", function() {
-    if (timer === undefined) {
+    if (playing === false) {
       startGame();
     }
   });
 };
 
 let score = 0;
+
+let playing = false;
 
 function clearCanvas() {
   context.beginPath();
@@ -38,20 +41,63 @@ function clearCanvas() {
 }
 
 function updateAll() {
+  clearCanvas();
+  spawn();
   moveEverything();
   drawEverything();
 }
 
 function startGame() {
+  playing = true;
+
+  submarine.x = 75;
+  submarine.y = 150;
+  submarine.hearts = 3;
+
+  playMusic();
+
+  const menu = $(".menu");
+  menu.classList.remove("active");
+
   timer = setInterval(() => {
-    clearCanvas();
-
-    spawn();
-
     updateAll();
   }, 1000 / framesPerSecond);
 }
 
+const waterSounds = new Audio("./../sounds/watersounds.mp3");
+
+function playMusic() {
+  if (SETTINGS.MUSIC) {
+    waterSounds.play();
+    waterSounds.loop = true;
+  }
+}
+
+function stopMusic() {
+  waterSounds.pause();
+  waterSounds.currentTime = 0;
+}
+
+function updateScore(newScore) {
+  if (localStorage.score === undefined) {
+    localStorage.score = 0;
+  }
+  localStorage.score = newScore;
+}
+
 function endGame() {
+  playing = false;
+
   clearInterval(timer);
+
+  stopMusic();
+
+  const newScore = parseInt(localStorage.score) + score;
+  score = 0;
+  updateScore(newScore);
+
+  const menu = $(".menu");
+  menu.classList += " active";
+
+  renderHomeScreen(); // not working for some reason
 }

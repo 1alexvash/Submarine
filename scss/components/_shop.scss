@@ -1,0 +1,51 @@
+.shop {
+  background: white;
+  font-size: 20px;
+  width: 800px;
+  margin: auto;
+  padding: 20px;
+  @include responsive(800px, 800px) {
+    display: none;
+  }
+  .money {
+    img {
+      width: 20px;
+    }
+  }
+  .upgrades {
+    section {
+      border-bottom: 2px solid black;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      &.active {
+        background: linear-gradient(green, lightgreen);
+      }
+      .icon,
+      .desc,
+      .price,
+      .buy {
+        width: 25%;
+      }
+      .icon {
+        img {
+          width: 48px;
+        }
+      }
+      .desc {
+        font-size: 16px;
+      }
+      .price {
+      }
+      .buy {
+        button {
+          cursor: pointer;
+          padding: 10px;
+          border: 2px solid black;
+          background: linear-gradient(green, lightgreen);
+        }
+      }
+    }
+  }
+}

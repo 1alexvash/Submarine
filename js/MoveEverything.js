@@ -13,12 +13,6 @@ function moveSubmarine() {
   ) {
     submarine.y += submarine.speed;
   }
-
-  // GRAVITY FEATURE
-  if (submarine.x > 50) {
-    submarine.x -= submarine.speed / 5;
-  }
-
   if (submarine.controllers.arrowLeftLocked && submarine.x > 50) {
     submarine.x -= submarine.speed;
   }

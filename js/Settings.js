@@ -34,7 +34,7 @@ function initializeSettings() {
     input.checked = SETTINGS[option];
   });
 
-  const restoreButton = document.querySelector(".restore button");
+  const restoreButton = $(".restore button");
   restoreButton.onclick = function() {
     if (confirm("Are you sure?")) {
       updateSettings(DEFAULT_SETTINGS);

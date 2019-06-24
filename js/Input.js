@@ -5,11 +5,14 @@ document.addEventListener("keydown", function(e) {
   if (e.key === "ArrowDown") {
     submarine.controllers.arrowDownLocked = true;
   }
-  if (e.key === "ArrowLeft") {
-    submarine.controllers.arrowLeftLocked = true;
-  }
-  if (e.key === "ArrowRight") {
-    submarine.controllers.arrowRightLocked = true;
+
+  if (JSON.parse(localStorage.upgrades)[0].bought === true) {
+    if (e.key === "ArrowLeft") {
+      submarine.controllers.arrowLeftLocked = true;
+    }
+    if (e.key === "ArrowRight") {
+      submarine.controllers.arrowRightLocked = true;
+    }
   }
 });
 

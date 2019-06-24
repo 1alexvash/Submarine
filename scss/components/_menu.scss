@@ -1,0 +1,36 @@
+.menu {
+  position: absolute;
+  padding: 0;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  display: flex;
+  animation: showMenu 2s;
+  transition: 2s;
+  opacity: 0;
+  &.active {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  @keyframes showMenu {
+    from {
+      transform: translate(-50%, -100%);
+    }
+    to {
+      transform: translate(-50%, 0);
+    }
+  }
+  a {
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(white, deepskyblue);
+
+    img {
+      width: 64px;
+    }
+    p {
+      padding: 10px 0;
+      font-size: 20px;
+      color: white;
+    }
+  }
+}

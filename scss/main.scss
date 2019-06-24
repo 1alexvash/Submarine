@@ -3,9 +3,12 @@
 
 body {
   background: black;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
+@import "./components/menu";
 @import "./components/preloader";
 @import "./components/canvas";
 @import "./components/mobile-warning";
 @import "./components/settings";
+@import "./components/shop";

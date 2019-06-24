@@ -1,11 +1,13 @@
 function drawEverything() {
-  drawWaterBackground();
-  drawWaterPlants();
-  drawSubmirine();
-  drawObjects();
-  drawSubmarineAndObjectsBorder();
-  drawHearts();
-  drawScore();
+  if (playing) {
+    drawWaterBackground();
+    drawWaterPlants();
+    drawSubmirine();
+    drawObjects();
+    drawSubmarineAndObjectsBorder();
+    drawHearts();
+    drawScore();
+  }
 }
 
 function drawWaterBackground() {

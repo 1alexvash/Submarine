@@ -13,15 +13,15 @@ function spawn() {
   }
   // 0.1% chance of creating a fire
   if (Math.round(Math.random() - 0.499) >= 1) {
-    const newRock = {
+    const newFire = {
       x: canvas.width,
       y: Math.round(Math.random() * canvas.height),
-      speed: 12,
+      speed: Math.round(Math.random() * 3) + 9,
       img: fireImg,
       type: "FIRE"
     };
 
-    objects.push(newRock);
+    objects.push(newFire);
   }
   // 0.05% chance of creating a coin
   if (Math.round(Math.random() - 0.4995) >= 1) {
@@ -48,8 +48,8 @@ function spawn() {
     objects.push(newHeart);
   }
   // 0.005% chance of creating a diamond
-  if (submarine.hearts < 5 && Math.round(Math.random() - 0.49995) >= 1) {
-    const newHeart = {
+  if (Math.round(Math.random() - 0.49995) >= 1) {
+    const newDiamond = {
       x: canvas.width,
       y: Math.round(Math.random() * canvas.height),
       speed: 4,
@@ -57,7 +57,20 @@ function spawn() {
       type: "DIAMOND"
     };
 
-    objects.push(newHeart);
+    objects.push(newDiamond);
+  }
+
+  // 0.001% chance of creating a treasure box
+  if (Math.round(Math.random() - 0.49999) >= 1) {
+    const newTreasure = {
+      x: canvas.width,
+      y: Math.round(Math.random() * canvas.height),
+      speed: 3,
+      img: treasureImg,
+      type: "TREASURE"
+    };
+
+    objects.push(newTreasure);
   }
 
   objects.forEach(object => {
@@ -116,6 +129,11 @@ function checkTouching(a, b) {
         objects.splice(objects.indexOf(myObject), 1);
         playSound(congratulationsSound);
         score += 25000;
+        break;
+      case "TREASURE":
+        objects.splice(objects.indexOf(myObject), 1);
+        playSound(congratulationsSound);
+        score += 100000;
         break;
       default:
         break;

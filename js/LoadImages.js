@@ -1,7 +1,8 @@
-const fireImg = document.getElementById("fire");
-const diamondImg = document.getElementById("diamond");
-const coinImg = document.getElementById("coin");
-const grassImg = document.getElementById("grass");
-const heartImg = document.getElementById("heart");
-const submarineImg = document.getElementById("submarine");
-const rockImg = document.getElementById("rock");
+const treasureImg = $(".images .treasure");
+const fireImg = $(".images .fire");
+const diamondImg = $(".images .diamond");
+const coinImg = $(".images .coin");
+const grassImg = $(".images .grass");
+const heartImg = $(".images .heart");
+const submarineImg = $(".images .submarine");
+const rockImg = $(".images .rock");

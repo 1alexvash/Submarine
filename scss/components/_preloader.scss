@@ -6,32 +6,49 @@
   height: 100%;
   background: transparent;
   z-index: 1;
-  animation: Preloader 10s;
-  @keyframes Preloader {
-    from {
-      background: #000;
-    }
-    50% {
-      background: white;
-    }
-    to {
-      background: transparent;
-    }
-  }
-  .play {
-    cursor: pointer;
-    position: absolute;
+  background: black;
+  .content {
+    position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 2px solid white;
-    border-radius: 50%;
-    padding: 20px 30px;
-    font-size: 36px;
-    color: white;
-    background: black;
-    &:focus {
-      outline: none;
+    width: 300px;
+    background: white;
+    img {
+      width: 100%;
+      display: block;
+    }
+    p {
+      position: relative;
+      padding: 5px;
+      font-size: 14px;
+      font-weight: bold;
+      text-shadow: 0 0 5px deepskyblue;
+      background: black;
+      color: deepskyblue;
+      text-align: center;
+      user-select: none;
+      z-index: 1;
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: white;
+        z-index: -1;
+        animation: Loading 10s;
+        @keyframes Loading {
+          from {
+            width: 0;
+          }
+          to {
+            width: 100%;
+          }
+        }
+      }
     }
   }
 }
