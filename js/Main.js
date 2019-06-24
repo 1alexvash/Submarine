@@ -92,9 +92,13 @@ function endGame() {
 
   stopMusic();
 
-  const newScore = parseInt(localStorage.score) + score;
+  if (localStorage.score === undefined) {
+    updateScore(score);
+  } else {
+    const newScore = parseInt(localStorage.score) + score;
+    updateScore(newScore);
+  }
   score = 0;
-  updateScore(newScore);
 
   const menu = $(".menu");
   menu.classList += " active";
