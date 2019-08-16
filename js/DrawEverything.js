@@ -1,5 +1,5 @@
 function drawEverything() {
-  if (game.playing) {
+  if (playing) {
     drawWaterBackground();
     drawWaterPlants();
     drawSubmirine();
@@ -11,7 +11,7 @@ function drawEverything() {
 }
 
 function drawWaterBackground() {
-  let grd = game.context.createLinearGradient(
+  let grd = context.createLinearGradient(
     canvas.width / 2,
     0,
     canvas.width / 2,
@@ -21,12 +21,12 @@ function drawWaterBackground() {
   grd.addColorStop(0.25, "lightblue");
   grd.addColorStop(1, "deepskyblue");
 
-  game.context.fillStyle = grd;
-  game.context.fillRect(0, 0, canvas.width, canvas.height);
+  context.fillStyle = grd;
+  context.fillRect(0, 0, canvas.width, canvas.height);
 }
 
 function drawWaterPlants() {
-  game.context.drawImage(
+  context.drawImage(
     grassImg,
     0,
     canvas.height / 2,
@@ -36,7 +36,7 @@ function drawWaterPlants() {
 }
 
 function drawSubmirine() {
-  game.context.drawImage(
+  context.drawImage(
     submarineImg,
     submarine.x - submarineImg.width / 2,
     submarine.y - submarineImg.height / 2
@@ -44,8 +44,8 @@ function drawSubmirine() {
 }
 
 function drawObjects() {
-  game.objects.forEach(object => {
-    game.context.drawImage(
+  objects.forEach(object => {
+    context.drawImage(
       object.img,
       object.x - object.img.width / 2,
       object.y - object.img.height / 2
@@ -79,7 +79,7 @@ function drawSubmarineAndObjectsBorder() {
 
 function drawHearts() {
   for (let i = 0; i < submarine.hearts; i++) {
-    game.context.drawImage(
+    context.drawImage(
       heartImg,
       canvas.width - i * heartImg.width - heartImg.width * 2,
       25
@@ -89,10 +89,10 @@ function drawHearts() {
 
 function drawScore() {
   if (SETTINGS.SHOW_SCORE) {
-    game.score += 10;
-    game.context.font = "30px Arial";
-    game.context.fillStyle = "black";
-    game.context.textAlign = "left";
-    game.context.fillText(`Score ${game.score}`, 20, 50);
+    score = score + 10;
+    context.font = "30px Arial";
+    context.fillStyle = "black";
+    context.textAlign = "left";
+    context.fillText(`Score ${score}`, 20, 50);
   }
 }

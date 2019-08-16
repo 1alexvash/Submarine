@@ -1,7 +1,3 @@
-console.log(game);
-let objects = game.objects;
-console.log("objects", objects);
-
 function spawn() {
   // 0.8% chance of creating a rock
   if (Math.round(Math.random() - 0.492) >= 1) {
