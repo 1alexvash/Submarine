@@ -25,6 +25,11 @@ body {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
+.Select-Level {
+  font-size: 24px;
+  padding: 20px;
+}
+
 .menu {
   position: absolute;
   padding: 0;

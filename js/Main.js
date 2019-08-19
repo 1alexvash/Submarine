@@ -1,3 +1,11 @@
+class Game {
+  constructor() {
+    this.level = "1";
+  }
+}
+
+const game = new Game();
+
 const canvas = $("#canvas");
 const context = canvas.getContext("2d");
 let timer;
