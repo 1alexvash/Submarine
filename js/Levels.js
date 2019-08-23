@@ -4,7 +4,7 @@ game.levels = {
   first: [
     {
       type: "ROCK",
-      probability: 0.005,
+      frequencyPerSecond: 1 / 2,
       img: rockImg,
       speed: Math.round(Math.random() * 3) + 3
     }
@@ -12,9 +12,15 @@ game.levels = {
   second: [
     {
       type: "FIRE",
-      probability: 0.005,
+      frequencyPerSecond: 1 / 3,
       img: fireImg,
       speed: Math.round(Math.random() * 6) + 6
+    },
+    {
+      type: "EXTRA_HEART",
+      frequencyPerSecond: 1 / 45,
+      img: heartImg,
+      speed: 4
     }
   ]
 };

@@ -1,10 +1,10 @@
 function spawn() {
-  console.log(game.levels[game.level]);
+  // console.log(game.levels[game.level]);
 
   game.levels[game.level].map(item => {
     const { img, type, speed } = item;
 
-    if (Math.round(Math.random() - 0.5 + item.probability) >= 1) {
+    if (Math.random() > 1 - item.frequencyPerSecond / framesPerSecond) {
       objects.push({
         x: canvas.width,
         y: Math.round(Math.random() * canvas.height),
