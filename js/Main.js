@@ -7,6 +7,7 @@ class Game {
 const game = new Game();
 
 const canvas = $("#canvas");
+canvas.style.display = "none";
 const context = canvas.getContext("2d");
 let timer;
 

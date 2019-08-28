@@ -1,15 +1,34 @@
-const select = $(".Select-Level");
+// const select = $(".Select-Level");
 
-game.levels = {
-  first: [
+game.levelsOpened = 2;
+
+function initLevels() {
+  for (let i = 0; i < game.levelsOpened; i++) {
+    $$(".levels .level")[i].classList += " available";
+    $$(".levels .level .play")[i].addEventListener("click", () =>
+      initiateGame(i)
+    );
+  }
+}
+
+initLevels();
+
+function initiateGame(level) {
+  game.level = level;
+  $(".levels").style.display = "none";
+  canvas.style.display = "block";
+}
+
+game.levels = [
+  [
     {
       type: "ROCK",
-      frequencyPerSecond: 1 / 2,
+      frequencyPerSecond: 1 / 3,
       img: rockImg,
       speed: Math.round(Math.random() * 3) + 3
     }
   ],
-  second: [
+  [
     {
       type: "FIRE",
       frequencyPerSecond: 1 / 3,
@@ -22,11 +41,19 @@ game.levels = {
       img: heartImg,
       speed: 4
     }
+  ],
+  [
+    {
+      type: "ROCK",
+      frequencyPerSecond: 1 / 2,
+      img: rockImg,
+      speed: Math.round(Math.random() * 3) + 3
+    },
+    {
+      type: "EXTRA_HEART",
+      frequencyPerSecond: 1 / 45,
+      img: heartImg,
+      speed: 4
+    }
   ]
-};
-
-game.level = "first";
-
-select.addEventListener("change", e => {
-  game.level = e.target.value;
-});
+];
