@@ -27,7 +27,11 @@ function renderHomeScreen() {
 window.onload = function() {
   renderHomeScreen();
 
-  if (JSON.parse(localStorage.upgrades)[1].bought === true) {
+  if (
+    JSON.parse(localStorage.upgrades).upgrades.find(
+      upgrade => upgrade.name === "Engine"
+    ).bought === true
+  ) {
     submarine.speed *= 1.25;
   }
 
@@ -76,7 +80,7 @@ function startGame() {
 const waterSounds = new Audio("./sounds/watersounds.mp3");
 
 function playMusic() {
-  if (SETTINGS.MUSIC) {
+  if (settings.music) {
     waterSounds.play();
     waterSounds.loop = true;
   }

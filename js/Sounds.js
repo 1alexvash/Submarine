@@ -4,7 +4,7 @@ const boomSound = new Audio("./sounds/boom.mp3");
 const coinSound = new Audio("./sounds/coin.mp3");
 
 function playSound(sound) {
-  if (SETTINGS.SOUNDS) {
+  if (settings.sounds) {
     sound.play();
     sound.currentTime = 0;
   }

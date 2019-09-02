@@ -372,18 +372,22 @@ canvas {
   background: linear-gradient(green, lightgreen);
 }
 
-.shop .upgrades section .icon,
-.shop .upgrades section .desc,
 .shop .upgrades section .price,
 .shop .upgrades section .buy {
   width: 25%;
+}
+
+.shop .upgrades section .icon {
+  width: 10%;
 }
 
 .shop .upgrades section .icon img {
   width: 48px;
 }
 
-.shop .upgrades section .desc {
+.shop .upgrades section .description {
+  padding: 0 20px;
+  width: 40%;
   font-size: 16px;
 }
 

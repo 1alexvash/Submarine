@@ -60,5 +60,46 @@ game.levels = [
       img: heartImg,
       speed: 4
     }
+  ],
+  [
+    {
+      type: "ROCK",
+      frequencyPerSecond: 1 / 3,
+      img: rockImg,
+      speed: Math.round(Math.random() * 3) + 3
+    }
+  ],
+  ,
+  [
+    {
+      type: "ROCK",
+      frequencyPerSecond: 1 / 3,
+      img: rockImg,
+      speed: Math.round(Math.random() * 3) + 3
+    }
+  ],
+  [
+    {
+      type: "ROCK",
+      frequencyPerSecond: 1 / 3,
+      img: rockImg,
+      speed: Math.round(Math.random() * 3) + 3
+    }
+  ],
+  [
+    {
+      type: "ROCK",
+      frequencyPerSecond: 1 / 3,
+      img: rockImg,
+      speed: Math.round(Math.random() * 3) + 3
+    }
+  ],
+  [
+    {
+      type: "ROCK",
+      frequencyPerSecond: 1 / 3,
+      img: rockImg,
+      speed: Math.round(Math.random() * 3) + 3
+    }
   ]
 ];

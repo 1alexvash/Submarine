@@ -54,7 +54,7 @@ function drawObjects() {
 }
 
 function drawSubmarineAndObjectsBorder() {
-  if (SETTINGS.SHOW_UNITS_BORDERS) {
+  if (settings.show_units_borders) {
     context.rect(
       submarine.x - submarineImg.width / 2,
       submarine.y - submarineImg.height / 2,
@@ -88,7 +88,7 @@ function drawHearts() {
 }
 
 function drawScore() {
-  if (SETTINGS.SHOW_SCORE) {
+  if (settings.show_score) {
     score = score + 10;
     context.font = "30px Arial";
     context.fillStyle = "black";

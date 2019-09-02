@@ -22,18 +22,19 @@
       &.active {
         background: linear-gradient(green, lightgreen);
       }
-      .icon,
-      .desc,
       .price,
       .buy {
         width: 25%;
       }
       .icon {
+        width: 10%;
         img {
           width: 48px;
         }
       }
-      .desc {
+      .description {
+        padding: 0 20px;
+        width: 40%;
         font-size: 16px;
       }
       .price {

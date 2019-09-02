@@ -18,31 +18,9 @@
           <div class="icon">
             icon
           </div>
-          <div class="desc">Description</div>
+          <div class="description">Description</div>
           <div class="price">Price</div>
           <div class="buy">Buy button</div>
-        </section>
-
-        <section>
-          <div class="icon">
-            <img src="./images/axle.png" alt="axle" />
-          </div>
-          <div class="desc">Allows submirine moves backwards and forwards</div>
-          <div class="price">20 000</div>
-          <div class="buy">
-            <button onclick="buyUpg('Axle')">Buy</button>
-          </div>
-        </section>
-
-        <section>
-          <div class="icon">
-            <img src="./images/engine.png" alt="engine" />
-          </div>
-          <div class="desc">Increases submurine speed by 25%</div>
-          <div class="price">30 000</div>
-          <div class="buy">
-            <button onclick="buyUpg('Engine')">Buy</button>
-          </div>
         </section>
       </div>
     </div>
@@ -56,23 +34,16 @@
     </div>
 
     <script src="./js/Helpers.js"></script>
-    <script>
-      $(".shop .money span").innerHTML = localStorage.score;
-    </script>
+    <script src="./js/Shop.js"></script>
 
     <script>
-      function updateScore(newScore) {
-        if (localStorage.score === undefined) {
-          localStorage.score = 0;
-        }
-        localStorage.score = newScore;
+      if (localStorage.score === undefined) {
+        localStorage.score = 0;
       }
-    </script>
 
-    <script src="./js/Upgrades.js"></script>
+      $(".shop .money span").innerHTML = localStorage.score;
 
-    <script>
-      initializeUpgrades();
+      shop.showUpgradesPage();
     </script>
   </body>
 </html>

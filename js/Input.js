@@ -6,7 +6,11 @@ document.addEventListener("keydown", function(e) {
     submarine.controllers.arrowDownLocked = true;
   }
 
-  if (JSON.parse(localStorage.upgrades)[0].bought === true) {
+  if (
+    JSON.parse(localStorage.upgrades).upgrades.find(
+      upgrade => upgrade.name === "Axle"
+    ).bought === true
+  ) {
     if (e.key === "ArrowLeft") {
       submarine.controllers.arrowLeftLocked = true;
     }
