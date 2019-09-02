@@ -1,48 +1,52 @@
-let SETTINGS = {};
+class Settings {
+  constructor() {
+    this.sounds;
+    this.music;
+    this.show_score;
+    this.show_units_borders;
+  }
 
-const DEFAULT_SETTINGS = {
-  SOUNDS: true,
-  MUSIC: true,
-  SHOW_SCORE: true,
-  SHOW_UNITS_BORDERS: false
-};
+  getDefaults() {
+    this.sounds = true;
+    this.music = true;
+    this.show_score = true;
+    this.show_units_borders = false;
+  }
 
-if (localStorage.settings === undefined) {
-  updateSettings(DEFAULT_SETTINGS);
-} else {
-  getSettings(JSON.parse(localStorage.settings));
-}
-
-function updateSettings(new_set) {
-  localStorage.settings = JSON.stringify(new_set);
-  SETTINGS = new_set;
-}
-
-function getSettings(set) {
-  SETTINGS = set;
-}
-
-function initializeSettings() {
-  Object.keys(SETTINGS).map(option => {
-    const input = document.getElementsByName(option)[0];
-
-    input.onclick = function(e) {
-      SETTINGS[e.target.name] = e.target.checked;
-      updateSettings(SETTINGS);
-    };
-
-    input.checked = SETTINGS[option];
-  });
-
-  const restoreButton = $(".restore button");
-  restoreButton.onclick = function() {
-    if (confirm("Are you sure?")) {
-      updateSettings(DEFAULT_SETTINGS);
-
-      Object.keys(DEFAULT_SETTINGS).map(option => {
-        const input = document.getElementsByName(option)[0];
-        input.checked = DEFAULT_SETTINGS[option];
-      });
+  init() {
+    if (localStorage.settings === undefined) {
+      this.getDefaults();
+      this.save();
+    } else {
+      const localStorageSettings = JSON.parse(localStorage.settings);
+      Object.keys(localStorageSettings).map(
+        prop => (this[prop] = localStorageSettings[prop])
+      );
     }
-  };
+  }
+
+  showSettingsPage() {
+    const localStorageSettings = JSON.parse(localStorage.settings);
+    Object.keys(localStorageSettings).map(prop => {
+      const input = $(`.settings [name="${prop}"]`);
+      input.checked = localStorageSettings[prop];
+      input.addEventListener("change", e => {
+        this[prop] = e.target.checked;
+        this.save();
+      });
+    });
+
+    $(".settings .restore").onclick = () => {
+      this.getDefaults();
+      this.save();
+      location.reload();
+    };
+  }
+
+  save() {
+    localStorage.settings = JSON.stringify(this);
+  }
 }
+
+const settings = new Settings();
+settings.init();
