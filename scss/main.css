@@ -31,6 +31,8 @@ body {
 }
 
 .levels .level {
+  background-size: cover;
+  background-position: 50% 50%;
   position: relative;
   padding: 20px;
   margin-bottom: 20px;
@@ -58,6 +60,7 @@ body {
 }
 
 .levels .level .play {
+  margin-top: 200px;
   font-size: 20px;
   padding: 8px 20px;
   border: 1px solid #333;
