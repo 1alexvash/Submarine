@@ -37,9 +37,9 @@ function drawWaterPlants() {
 
 function drawSubmirine() {
   context.drawImage(
-    submarineImg,
-    submarine.x - submarineImg.width / 2,
-    submarine.y - submarineImg.height / 2
+    submarine.img,
+    submarine.x - submarine.img.width / 2,
+    submarine.y - submarine.img.height / 2
   );
 }
 
@@ -56,10 +56,10 @@ function drawObjects() {
 function drawSubmarineAndObjectsBorder() {
   if (settings.show_units_borders) {
     context.rect(
-      submarine.x - submarineImg.width / 2,
-      submarine.y - submarineImg.height / 2,
-      submarineImg.width,
-      submarineImg.height
+      submarine.x - submarine.img.width / 2,
+      submarine.y - submarine.img.height / 2,
+      submarine.img.width,
+      submarine.img.height
     );
     context.lineWidth = "1";
     context.stroke();

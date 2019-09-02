@@ -29,7 +29,23 @@ window.onload = function() {
 
   if (
     JSON.parse(localStorage.upgrades).upgrades.find(
-      upgrade => upgrade.name === "Engine"
+      upgrade => upgrade.name === "Engine1"
+    ).bought === true
+  ) {
+    submarine.speed *= 1.25;
+  }
+
+  if (
+    JSON.parse(localStorage.upgrades).upgrades.find(
+      upgrade => upgrade.name === "Engine2"
+    ).bought === true
+  ) {
+    submarine.speed *= 1.25;
+  }
+
+  if (
+    JSON.parse(localStorage.upgrades).upgrades.find(
+      upgrade => upgrade.name === "Engine3"
     ).bought === true
   ) {
     submarine.speed *= 1.25;

@@ -5,4 +5,5 @@ const coinImg = $(".images .coin");
 const grassImg = $(".images .grass");
 const heartImg = $(".images .heart");
 const submarineImg = $(".images .submarine");
+const submarineDarkImg = $(".images .submarine-dark");
 const rockImg = $(".images .rock");

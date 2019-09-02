@@ -15,3 +15,11 @@ class Submarine {
 }
 
 const submarine = new Submarine();
+
+if (
+  shop.upgrades.find(upgrade => upgrade.name === "submarine-dark").bought ===
+  true
+) {
+  console.log("upgrade purchased");
+  submarine.img = submarineDarkImg;
+}
