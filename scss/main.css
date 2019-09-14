@@ -25,68 +25,8 @@ body {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
-.levels {
-  width: 480px;
-  margin: 50px auto;
-}
-
-.levels .level {
-  background-size: cover;
-  background-position: 50% 50%;
-  position: relative;
-  padding: 20px;
-  margin-bottom: 20px;
-  border: 1px solid white;
-  border-radius: 4px;
-  opacity: 0.4;
-}
-
-.levels .level .name {
-  font-size: 24px;
-  color: white;
-}
-
-.levels .level .preview {
-  margin: 20px 0;
-  width: 100%;
-}
-
-.levels .level .lock {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 32px;
-  height: 32px;
-}
-
-.levels .level .play {
-  margin-top: 200px;
-  font-size: 20px;
-  padding: 8px 20px;
-  border: 1px solid #333;
-  background: grey;
-  border-radius: 4px;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-  cursor: not-allowed;
-}
-
-.levels .level.available {
-  opacity: 1;
-}
-
-.levels .level.available .lock {
+.icons {
   display: none;
-}
-
-.levels .level.available button {
-  cursor: pointer;
-  background: deepskyblue;
-}
-
-.levels .level.available button:hover {
-  color: white;
-  background: #00ace6;
 }
 
 .menu {
@@ -397,4 +337,68 @@ canvas {
   border: 2px solid black;
   background: -webkit-gradient(linear, left top, left bottom, from(green), to(lightgreen));
   background: linear-gradient(green, lightgreen);
+}
+
+.levels {
+  width: 480px;
+  margin: 50px auto;
+}
+
+.levels .level {
+  background-size: cover;
+  background-position: 50% 50%;
+  position: relative;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid white;
+  border-radius: 4px;
+  opacity: 0.4;
+}
+
+.levels .level .name {
+  font-size: 24px;
+  color: white;
+}
+
+.levels .level .preview {
+  margin: 20px 0;
+  width: 100%;
+}
+
+.levels .level .lock {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+}
+
+.levels .level .play {
+  margin-top: 200px;
+  font-size: 20px;
+  padding: 8px 20px;
+  border: 1px solid #333;
+  background: grey;
+  border-radius: 4px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  cursor: not-allowed;
+}
+
+.levels .level.available {
+  opacity: 1;
+}
+
+.levels .level.available .lock {
+  display: none;
+}
+
+.levels .level.available button {
+  cursor: pointer;
+  background: deepskyblue;
+}
+
+.levels .level.available button:hover {
+  color: white;
+  background: #00ace6;
 }

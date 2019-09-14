@@ -1,7 +1,11 @@
-// const select = $(".Select-Level");
+if (localStorage.levelsOpened === undefined) {
+  localStorage.levelsOpened = 1;
+  game.levelsOpened = 1;
+} else {
+  game.levelsOpened = parseInt(localStorage.levelsOpened);
+}
 
 game.totalLevels = 8;
-game.levelsOpened = 2;
 
 function initLevels() {
   for (let i = 0; i < game.totalLevels; i++) {
@@ -25,6 +29,7 @@ function initiateGame(level) {
 }
 
 game.levels = [
+  // first level
   [
     {
       type: "ROCK",
@@ -33,20 +38,16 @@ game.levels = [
       speed: Math.round(Math.random() * 3) + 3
     }
   ],
+  // second level
   [
     {
-      type: "FIRE",
-      frequencyPerSecond: 1 / 3,
-      img: fireImg,
-      speed: Math.round(Math.random() * 6) + 6
-    },
-    {
-      type: "EXTRA_HEART",
-      frequencyPerSecond: 1 / 45,
-      img: heartImg,
-      speed: 4
+      type: "SHARK",
+      frequencyPerSecond: 1 / 2.5,
+      img: sharkImg,
+      speed: Math.round(Math.random() * 6) + 3
     }
   ],
+  // third level
   [
     {
       type: "ROCK",
@@ -55,50 +56,168 @@ game.levels = [
       speed: Math.round(Math.random() * 3) + 3
     },
     {
-      type: "EXTRA_HEART",
+      type: "COIN",
+      frequencyPerSecond: 1 / 15,
+      img: coinImg,
+      speed: Math.round(Math.random() * 3) + 3
+    }
+  ],
+  // fourth level
+  [
+    {
+      type: "ROCK",
+      frequencyPerSecond: 1 / 2,
+      img: rockImg,
+      speed: Math.round(Math.random() * 3) + 3
+    },
+    {
+      type: "SHARK",
+      frequencyPerSecond: 1 / 2,
+      img: sharkImg,
+      speed: Math.round(Math.random() * 6) + 3
+    },
+    {
+      type: "HEART",
       frequencyPerSecond: 1 / 45,
       img: heartImg,
-      speed: 4
-    }
-  ],
-  [
-    {
-      type: "ROCK",
-      frequencyPerSecond: 1 / 3,
-      img: rockImg,
       speed: Math.round(Math.random() * 3) + 3
     }
   ],
-  ,
+  // fifth level
   [
     {
-      type: "ROCK",
-      frequencyPerSecond: 1 / 3,
-      img: rockImg,
+      type: "FIRE",
+      frequencyPerSecond: 1 / 4,
+      img: fireImg,
+      speed: Math.round(Math.random() * 9) + 3
+    },
+    {
+      type: "COIN",
+      frequencyPerSecond: 1 / 15,
+      img: coinImg,
+      speed: Math.round(Math.random() * 3) + 3
+    },
+    {
+      type: "HEART",
+      frequencyPerSecond: 1 / 45,
+      img: heartImg,
       speed: Math.round(Math.random() * 3) + 3
     }
   ],
+  // sixth level
   [
     {
       type: "ROCK",
-      frequencyPerSecond: 1 / 3,
+      frequencyPerSecond: 1 / 2,
       img: rockImg,
+      speed: Math.round(Math.random() * 3) + 3
+    },
+    {
+      type: "SHARK",
+      frequencyPerSecond: 1,
+      img: sharkImg,
+      speed: Math.round(Math.random() * 6) + 3
+    },
+    {
+      type: "FIRE",
+      frequencyPerSecond: 1 / 8,
+      img: fireImg,
+      speed: Math.round(Math.random() * 9) + 3
+    },
+    {
+      type: "COIN",
+      frequencyPerSecond: 1 / 15,
+      img: coinImg,
+      speed: Math.round(Math.random() * 3) + 3
+    },
+    {
+      type: "HEART",
+      frequencyPerSecond: 1 / 45,
+      img: heartImg,
+      speed: Math.round(Math.random() * 3) + 3
+    },
+    {
+      type: "DIAMOND",
+      frequencyPerSecond: 1 / 75,
+      img: diamondImg,
       speed: Math.round(Math.random() * 3) + 3
     }
   ],
+  // seventh level
   [
     {
-      type: "ROCK",
-      frequencyPerSecond: 1 / 3,
-      img: rockImg,
+      type: "BLUE_FIRE",
+      frequencyPerSecond: 5,
+      img: blueFireImg,
+      speed: Math.round(Math.random() * 9) + 3
+    },
+    {
+      type: "COIN",
+      frequencyPerSecond: 1 / 15,
+      img: coinImg,
+      speed: Math.round(Math.random() * 3) + 3
+    },
+    {
+      type: "HEART",
+      frequencyPerSecond: 1 / 45,
+      img: heartImg,
+      speed: Math.round(Math.random() * 3) + 3
+    },
+    {
+      type: "DIAMOND",
+      frequencyPerSecond: 1 / 75,
+      img: diamondImg,
       speed: Math.round(Math.random() * 3) + 3
     }
   ],
+  // eighth level
   [
     {
       type: "ROCK",
-      frequencyPerSecond: 1 / 3,
+      frequencyPerSecond: 1 / 2,
       img: rockImg,
+      speed: Math.round(Math.random() * 3) + 3
+    },
+    {
+      type: "SHARK",
+      frequencyPerSecond: 1 / 1.5,
+      img: sharkImg,
+      speed: Math.round(Math.random() * 6) + 3
+    },
+    {
+      type: "FIRE",
+      frequencyPerSecond: 1,
+      img: fireImg,
+      speed: Math.round(Math.random() * 9) + 3
+    },
+    {
+      type: "BLUE_FIRE",
+      frequencyPerSecond: 1,
+      img: blueFireImg,
+      speed: Math.round(Math.random() * 9) + 3
+    },
+    {
+      type: "COIN",
+      frequencyPerSecond: 1 / 15,
+      img: coinImg,
+      speed: Math.round(Math.random() * 3) + 3
+    },
+    {
+      type: "HEART",
+      frequencyPerSecond: 1 / 45,
+      img: heartImg,
+      speed: Math.round(Math.random() * 3) + 3
+    },
+    {
+      type: "DIAMOND",
+      frequencyPerSecond: 1 / 75,
+      img: diamondImg,
+      speed: Math.round(Math.random() * 3) + 3
+    },
+    {
+      type: "TREASURE",
+      frequencyPerSecond: 1 / 300,
+      img: treasureImg,
       speed: Math.round(Math.random() * 3) + 3
     }
   ]

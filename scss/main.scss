@@ -6,58 +6,8 @@ body {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
-.levels {
-  width: 480px;
-  margin: 50px auto;
-  .level {
-    background-size: cover;
-    background-position: 50% 50%;
-    position: relative;
-    padding: 20px;
-    margin-bottom: 20px;
-    border: 1px solid white;
-    border-radius: 4px;
-    opacity: 0.4;
-    .name {
-      font-size: 24px;
-      color: white;
-    }
-    .preview {
-      margin: 20px 0;
-      width: 100%;
-    }
-    .lock {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      width: 32px;
-      height: 32px;
-    }
-    .play {
-      margin-top: 200px;
-      font-size: 20px;
-      padding: 8px 20px;
-      border: 1px solid #333;
-      background: grey;
-      border-radius: 4px;
-      transition: 0.3s;
-      cursor: not-allowed;
-    }
-  }
-  .level.available {
-    opacity: 1;
-    .lock {
-      display: none;
-    }
-    button {
-      cursor: pointer;
-      background: deepskyblue;
-      &:hover {
-        color: white;
-        background: darken(deepskyblue, 5%);
-      }
-    }
-  }
+.icons {
+  display: none;
 }
 
 @import "./components/menu";
@@ -66,3 +16,4 @@ body {
 @import "./components/mobile-warning";
 @import "./components/settings";
 @import "./components/shop";
+@import "./components/levels";

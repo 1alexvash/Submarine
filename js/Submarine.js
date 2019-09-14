@@ -20,6 +20,5 @@ if (
   shop.upgrades.find(upgrade => upgrade.name === "submarine-dark").bought ===
   true
 ) {
-  console.log("upgrade purchased");
   submarine.img = submarineDarkImg;
 }

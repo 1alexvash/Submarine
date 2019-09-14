@@ -13,7 +13,23 @@ function collisionCheck(a, b) {
           endGame();
         }
         break;
+      case "SHARK":
+        objects.splice(objects.indexOf(myObject), 1);
+        playSound(boomSound);
+        submarine.hearts--;
+        if (submarine.hearts === 0) {
+          endGame();
+        }
+        break;
       case "FIRE":
+        objects.splice(objects.indexOf(myObject), 1);
+        playSound(boomSound);
+        submarine.hearts--;
+        if (submarine.hearts === 0) {
+          endGame();
+        }
+        break;
+      case "BLUE_FIRE":
         objects.splice(objects.indexOf(myObject), 1);
         playSound(boomSound);
         submarine.hearts--;
