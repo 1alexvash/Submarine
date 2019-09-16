@@ -54,6 +54,11 @@ window.onload = function() {
   canvas.addEventListener("click", function() {
     if (playing === false) {
       startGame();
+
+      console.log("game started");
+      setTimeout(() => {
+        alert("30 seconds passed");
+      }, 30000);
     }
   });
 };

@@ -1,0 +1,33 @@
+
+
+@Level 1#
+Rocks every 0.5 seconds
+Goal: survive for 30 seconds
+
+@Level 2
+Sharks every 0.4 seconds
+Goal: survive for 2 minute
+
+@Level 3 + coins
+Rocks every 0.33 seconds
+collect 10 coins
+
+@Level 4 + hearts
+Rocks 0.5 + Sharks 0.5
+Goal: survive for 3 minute
+
+@Level 5 coins + hearts
+Fire 0.25;
+Goal: survive for 3 minute
+
+@Level 6 coins + hearts + diamonds
+Rocks 0.5, Sharks 1, Fire 2
+Goal: survive for 4 minutes
+
+@Level 7 coins + hearts + diamonds
+PurpleFire 0.2s
+Goal: survive for 5 minutes
+
+@Level 8 coins + hearts + diamonds + treasure
+Rocks 2, Sharks 1.5, Fire 1, PurpleFire 1
+Goal: find treasure
