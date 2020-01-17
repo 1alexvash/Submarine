@@ -5,7 +5,21 @@ if (localStorage.levelsOpened === undefined) {
   game.levelsOpened = parseInt(localStorage.levelsOpened);
 }
 
-game.totalLevels = 8;
+function levelComplete(completedLevel) {
+  const newLevel = completedLevel + 2;
+  if (newLevel > parseInt(localStorage.levelsOpened)) {
+    localStorage.levelsOpened = newLevel;
+  }
+  window.location.href = `${window.location.href}/level-complete.html`;
+}
+
+game.totalLevels = 9;
+
+game.levelsDuration = [30, 120, null, 180, null, 240, null, null, null];
+// level 3 is to collect 3 coins!!!
+// update it @@@ to null
+game.objectsToSurvive = [null, null, null, null, 100, null, null, 200, null];
+game.objectsToCollect = [null, null, 5, null, null, null, 3, null, null, null];
 
 function initLevels() {
   for (let i = 0; i < game.totalLevels; i++) {
@@ -28,204 +42,7 @@ function initiateGame(level) {
   canvas.style.display = "block";
 }
 
-/*
-  The first parameter in speed array
-  indicates miminal object's speed
-  the second the bonus speed
-  it can get when it's spawned
-*/
-
-game.levels = [
-  // first level
-  [
-    {
-      type: "ROCK",
-      frequencyPerSecond: 1 / 2,
-      img: rockImg,
-      speed: [3, 3]
-    }
-  ],
-  // second level
-  [
-    {
-      type: "SHARK",
-      frequencyPerSecond: 1 / 2.5,
-      img: sharkImg,
-      speed: [3, 6]
-    }
-  ],
-  // third level
-  [
-    {
-      type: "ROCK",
-      frequencyPerSecond: 1 / 2,
-      img: rockImg,
-      speed: [3, 3]
-    },
-    {
-      type: "COIN",
-      frequencyPerSecond: 1 / 15,
-      img: coinImg,
-      speed: [3, 3]
-    }
-  ],
-  // fourth level
-  [
-    {
-      type: "ROCK",
-      frequencyPerSecond: 1 / 2,
-      img: rockImg,
-      speed: [3, 3]
-    },
-    {
-      type: "SHARK",
-      frequencyPerSecond: 1 / 2,
-      img: sharkImg,
-      speed: [3, 6]
-    },
-    {
-      type: "HEART",
-      frequencyPerSecond: 1 / 45,
-      img: heartImg,
-      speed: [3, 3]
-    }
-  ],
-  // fifth level
-  [
-    {
-      type: "FIRE",
-      frequencyPerSecond: 1 / 4,
-      img: fireImg,
-      speed: [3, 9]
-    },
-    {
-      type: "COIN",
-      frequencyPerSecond: 1 / 15,
-      img: coinImg,
-      speed: [3, 3]
-    },
-    {
-      type: "HEART",
-      frequencyPerSecond: 1 / 45,
-      img: heartImg,
-      speed: [3, 3]
-    }
-  ],
-  // sixth level
-  [
-    {
-      type: "ROCK",
-      frequencyPerSecond: 1 / 2,
-      img: rockImg,
-      speed: [3, 3]
-    },
-    {
-      type: "SHARK",
-      frequencyPerSecond: 1,
-      img: sharkImg,
-      speed: [3, 6]
-    },
-    {
-      type: "FIRE",
-      frequencyPerSecond: 1 / 8,
-      img: fireImg,
-      speed: [3, 9]
-    },
-    {
-      type: "COIN",
-      frequencyPerSecond: 1 / 15,
-      img: coinImg,
-      speed: [3, 3]
-    },
-    {
-      type: "HEART",
-      frequencyPerSecond: 1 / 45,
-      img: heartImg,
-      speed: Math.round(Math.random() * 3) + 3
-    },
-    {
-      type: "DIAMOND",
-      frequencyPerSecond: 1 / 75,
-      img: diamondImg,
-      speed: Math.round(Math.random() * 3) + 3
-    }
-  ],
-  // seventh level
-  [
-    {
-      type: "BLUE_FIRE",
-      frequencyPerSecond: 5,
-      img: blueFireImg,
-      speed: Math.round(Math.random() * 9) + 3
-    },
-    {
-      type: "COIN",
-      frequencyPerSecond: 1 / 15,
-      img: coinImg,
-      speed: Math.round(Math.random() * 3) + 3
-    },
-    {
-      type: "HEART",
-      frequencyPerSecond: 1 / 45,
-      img: heartImg,
-      speed: [3, 3]
-    },
-    {
-      type: "DIAMOND",
-      frequencyPerSecond: 1 / 75,
-      img: diamondImg,
-      speed: [3, 3]
-    }
-  ],
-  // eighth level
-  [
-    {
-      type: "ROCK",
-      frequencyPerSecond: 1 / 2,
-      img: rockImg,
-      speed: [3, 3]
-    },
-    {
-      type: "SHARK",
-      frequencyPerSecond: 1 / 1.5,
-      img: sharkImg,
-      speed: [3, 6]
-    },
-    {
-      type: "FIRE",
-      frequencyPerSecond: 1,
-      img: fireImg,
-      speed: [3, 9]
-    },
-    {
-      type: "BLUE_FIRE",
-      frequencyPerSecond: 1,
-      img: blueFireImg,
-      speed: [3, 9]
-    },
-    {
-      type: "COIN",
-      frequencyPerSecond: 1 / 15,
-      img: coinImg,
-      speed: [3, 3]
-    },
-    {
-      type: "HEART",
-      frequencyPerSecond: 1 / 45,
-      img: heartImg,
-      speed: [3, 3]
-    },
-    {
-      type: "DIAMOND",
-      frequencyPerSecond: 1 / 75,
-      img: diamondImg,
-      speed: [3, 3]
-    },
-    {
-      type: "TREASURE",
-      frequencyPerSecond: 1 / 300,
-      img: treasureImg,
-      speed: [3, 0]
-    }
-  ]
-];
+axios.get("/json/levels.json").then(data => {
+  game.levels = data.data;
+  game.levels.map(level => level.map(item => (item.img = eval(item.img))));
+});

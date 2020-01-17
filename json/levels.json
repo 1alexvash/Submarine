@@ -1,0 +1,188 @@
+[
+  [
+    {
+      "type": "ROCK",
+      "frequencyPerSecond": 0.5,
+      "img": "rockImg",
+      "speed": [3, 6]
+    }
+  ],
+  [
+    {
+      "type": "SHARK",
+      "frequencyPerSecond": 0.4,
+      "img": "sharkImg",
+      "speed": [4, 8]
+    }
+  ],
+  [
+    {
+      "type": "ROCK",
+      "frequencyPerSecond": 0.5714285714285714,
+      "img": "rockImg",
+      "speed": [3, 6]
+    },
+    {
+      "type": "COIN",
+      "frequencyPerSecond": 0.06666666666666667,
+      "img": "coinImg",
+      "speed": [3, 6]
+    }
+  ],
+  [
+    {
+      "type": "ROCK",
+      "frequencyPerSecond": 0.5,
+      "img": "rockImg",
+      "speed": [3, 6]
+    },
+    {
+      "type": "SHARK",
+      "frequencyPerSecond": 0.3333333333333333,
+      "img": "sharkImg",
+      "speed": [4, 8]
+    },
+    {
+      "type": "HEART",
+      "frequencyPerSecond": 0.022222222222222223,
+      "img": "heartImg",
+      "speed": [3, 6]
+    }
+  ],
+  [
+    {
+      "type": "FIRE",
+      "frequencyPerSecond": 0.8333333333333334,
+      "img": "fireImg",
+      "speed": [3, 12]
+    },
+    {
+      "type": "COIN",
+      "frequencyPerSecond": 0.06666666666666667,
+      "img": "coinImg",
+      "speed": [3, 6]
+    },
+    {
+      "type": "HEART",
+      "frequencyPerSecond": 0.022222222222222223,
+      "img": "heartImg",
+      "speed": [3, 6]
+    }
+  ],
+  [
+    {
+      "type": "ROCK",
+      "frequencyPerSecond": 0.3333333333333333,
+      "img": "rockImg",
+      "speed": [3, 6]
+    },
+    {
+      "type": "SHARK",
+      "frequencyPerSecond": 0.25,
+      "img": "sharkImg",
+      "speed": [4, 8]
+    },
+    {
+      "type": "FIRE",
+      "frequencyPerSecond": 0.2,
+      "img": "fireImg",
+      "speed": [3, 12]
+    },
+    {
+      "type": "COIN",
+      "frequencyPerSecond": 0.06666666666666667,
+      "img": "coinImg",
+      "speed": [3, 6]
+    },
+    {
+      "type": "HEART",
+      "frequencyPerSecond": 0.022222222222222223,
+      "img": "heartImg",
+      "speed": [3, 6]
+    },
+    {
+      "type": "DIAMOND",
+      "frequencyPerSecond": 0.013333333333333334,
+      "img": "diamondImg",
+      "speed": [3, 6]
+    }
+  ],
+  [
+    {
+      "type": "SHARK",
+      "frequencyPerSecond": 0.8,
+      "img": "sharkImg",
+      "speed": [4, 8]
+    },
+    {
+      "type": "HEART",
+      "frequencyPerSecond": 0.03333333333333333,
+      "img": "heartImg",
+      "speed": [3, 6]
+    },
+    {
+      "type": "DIAMOND",
+      "frequencyPerSecond": 0.013333333333333334,
+      "img": "diamondImg",
+      "speed": [3, 6]
+    }
+  ],
+  [
+    {
+      "type": "BLUE_FIRE",
+      "frequencyPerSecond": 1,
+      "img": "blueFireImg",
+      "speed": [6, 12]
+    },
+    {
+      "type": "COIN",
+      "frequencyPerSecond": 0.06666666666666667,
+      "img": "coinImg",
+      "speed": [3, 6]
+    },
+    {
+      "type": "HEART",
+      "frequencyPerSecond": 0.03333333333333333,
+      "img": "heartImg",
+      "speed": [3, 6]
+    },
+    {
+      "type": "DIAMOND",
+      "frequencyPerSecond": 0.013333333333333334,
+      "img": "diamondImg",
+      "speed": [3, 6]
+    }
+  ],
+  [
+    {
+      "type": "FIRE",
+      "frequencyPerSecond": 0.4,
+      "img": "fireImg",
+      "speed": [3, 12]
+    },
+    {
+      "type": "BLUE_FIRE",
+      "frequencyPerSecond": 0.8,
+      "img": "blueFireImg",
+      "speed": [6, 12]
+    },
+    {
+      "type": "HEART",
+      "frequencyPerSecond": 0.03333333333333333,
+      "img": "heartImg",
+      "speed": [3, 6]
+    },
+    {
+      "type": "DIAMOND",
+      "frequencyPerSecond": 0.022222222222222223,
+      "img": "diamondImg",
+      "speed": [3, 6]
+    },
+    {
+      "type": "TREASURE",
+      "frequencyPerSecond": 0.00666666666,
+      "img": "treasureImg",
+      "speed": [3, 3]
+    }
+  ]
+]

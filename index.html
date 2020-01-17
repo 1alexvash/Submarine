@@ -19,6 +19,7 @@
     <div class="menu active">
       <a href="./shop.html" title="Shop">
         <img src="./images/shop.png" alt="" />
+        <div class="tip">Let's go shopping!</div>
       </a>
       <a href="./settings.html" title="Settings">
         <img src="./images/settings.png" alt="" />
@@ -122,6 +123,18 @@
         />
         <button class="play">Play</button>
       </div>
+      <div class="level">
+        <div class="name">
+          Ninth Level
+        </div>
+        <img
+          src="images/lock.png"
+          title="This level is not availabel yet. Pass previous one to unlock this"
+          alt="lock"
+          class="lock"
+        />
+        <button class="play">Play</button>
+      </div>
     </div>
 
     <canvas id="canvas" width="800" height="400"></canvas>
@@ -144,6 +157,7 @@
       <img src="./images/rock.png" class="rock" alt="rock" />
     </div>
 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./js/Helpers.js"></script>
     <script src="./js/Preloader.js"></script>
     <script src="./js/LoadImages.js"></script>

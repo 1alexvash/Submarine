@@ -3,6 +3,7 @@ class Submarine {
     this.x = 75;
     this.y = 150;
     this.hearts = 3;
+    this.heartsMax = 5;
     this.img = submarineImg;
     this.speed = 3;
     this.controllers = {
@@ -16,9 +17,26 @@ class Submarine {
 
 const submarine = new Submarine();
 
-if (
-  shop.upgrades.find(upgrade => upgrade.name === "submarine-dark").bought ===
-  true
-) {
+if (userHasUpg("submarine-dark")) {
   submarine.img = submarineDarkImg;
+}
+
+if (userHasUpg("Engine1")) {
+  submarine.speed *= 1.33;
+}
+
+if (userHasUpg("Engine2")) {
+  submarine.speed *= 1.33;
+}
+
+if (userHasUpg("Engine3")) {
+  submarine.speed *= 1.33;
+}
+
+if (userHasUpg("Tank1")) {
+  submarine.heartsMax++;
+}
+
+if (userHasUpg("Tank2")) {
+  submarine.heartsMax++;
 }

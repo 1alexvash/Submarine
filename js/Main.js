@@ -10,6 +10,31 @@ const canvas = $("#canvas");
 canvas.style.display = "none";
 const context = canvas.getContext("2d");
 let timer;
+const menu = $(".menu");
+
+function upgradesCheck() {
+  let userHasAnyUpg = false;
+  upgrades.map(upg => {
+    if (upg.bought === true) {
+      userHasAnyUpg = true;
+    }
+  });
+
+  if (!userHasAnyUpg) {
+    console.log("Animation to go to shop");
+    $(".menu [title='Shop']").classList += " active";
+  }
+}
+
+upgradesCheck();
+
+function showMenu() {
+  menu.classList += " active";
+}
+
+function hideMenu() {
+  menu.classList.remove("active");
+}
 
 const framesPerSecond = 30;
 
@@ -27,52 +52,20 @@ function renderHomeScreen() {
 window.onload = function() {
   renderHomeScreen();
 
-  if (
-    JSON.parse(localStorage.upgrades).upgrades.find(
-      upgrade => upgrade.name === "Engine1"
-    ).bought === true
-  ) {
-    submarine.speed *= 1.25;
-  }
-
-  if (
-    JSON.parse(localStorage.upgrades).upgrades.find(
-      upgrade => upgrade.name === "Engine2"
-    ).bought === true
-  ) {
-    submarine.speed *= 1.25;
-  }
-
-  if (
-    JSON.parse(localStorage.upgrades).upgrades.find(
-      upgrade => upgrade.name === "Engine3"
-    ).bought === true
-  ) {
-    submarine.speed *= 1.25;
-  }
-
   canvas.addEventListener("click", function() {
     if (playing === false) {
       startGame();
-
-      console.log("game started");
-      setTimeout(() => {
-        alert("30 seconds passed");
-      }, 30000);
     }
   });
 };
 
 let score = 0;
 
-let playing = false;
+let secondsLeft = 0;
+let objectsLeftToSurvive = 0;
+let objectsLeftToCollect = 0;
 
-function clearCanvas() {
-  context.beginPath();
-  context.rect(0, 0, canvas.width, canvas.height);
-  context.fillStyle = "white";
-  context.fill();
-}
+let playing = false;
 
 function updateAll() {
   clearCanvas();
@@ -86,16 +79,41 @@ function startGame() {
 
   submarine.x = 75;
   submarine.y = 150;
-  submarine.hearts = 3;
+  submarine.hearts = submarine.heartsMax - 2;
+
+  secondsLeft = game.levelsDuration[game.level];
+  objectsLeftToSurvive = game.objectsToSurvive[game.level];
+  objectsLeftToCollect = game.objectsToCollect[game.level];
 
   playMusic();
 
-  const menu = $(".menu");
-  menu.classList.remove("active");
+  hideMenu();
 
   timer = setInterval(() => {
     updateAll();
   }, 1000 / framesPerSecond);
+}
+
+function showWinScreen() {
+  clearCanvas();
+
+  context.font = "40px Arial";
+  context.fillStyle = "black";
+  context.textAlign = "center";
+  context.fillText(
+    "Level completed succesfully!",
+    canvas.width / 2,
+    canvas.height / 2 - 35
+  );
+
+  context.font = "40px Arial";
+  context.fillStyle = "black";
+  context.textAlign = "center";
+  context.fillText(
+    "Click to continue on",
+    canvas.width / 2,
+    canvas.height / 2 + 55
+  );
 }
 
 const waterSounds = new Audio("./sounds/watersounds.mp3");
@@ -134,8 +152,12 @@ function endGame() {
   }
   score = 0;
 
-  const menu = $(".menu");
-  menu.classList += " active";
+  showMenu();
+
+  $(".levels").style.display = "block";
+  canvas.style.display = "none";
+
+  objects = [];
 
   renderHomeScreen();
 }

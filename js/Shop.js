@@ -1,72 +1,35 @@
-class Shop {
-  constructor() {
-    this.upgrades;
-  }
+let upgrades;
 
+class Shop {
   getDefaults() {
-    this.upgrades = [
-      {
-        name: "Axle",
-        description: "Allows submirine moves backwards and forwards",
-        bought: false,
-        price: 20000
-      },
-      {
-        name: "Engine1",
-        description: "Increases submurine speed by 25%",
-        bought: false,
-        price: 30000
-      },
-      {
-        name: "Engine2",
-        description: "Increases submurine speed by aditional 25%",
-        bought: false,
-        price: 50000
-      },
-      {
-        name: "Engine3",
-        description: "Increases submurine speed by another 25%",
-        bought: false,
-        price: 80000
-      },
-      {
-        name: "submarine-dark",
-        description: "Make submarine dark & smaller so it's harder to notice",
-        bought: false,
-        price: 100000
-      }
-    ];
+    axios.get("/json/upgrades.json").then(data => {
+      upgrades = data.data;
+      this.save();
+    });
   }
 
   init() {
     if (localStorage.upgrades === undefined) {
       this.getDefaults();
-      this.save();
     } else {
-      const localStorageUpgrades = JSON.parse(localStorage.upgrades);
-      Object.keys(localStorageUpgrades).map(
-        prop => (this[prop] = localStorageUpgrades[prop])
-      );
+      upgrades = JSON.parse(localStorage.upgrades);
     }
   }
 
   buyUpg(upgName) {
-    const selectedUpgrade = this.upgrades.find(
-      upgrade => upgrade.name === upgName
-    );
+    const selectedUpgrade = upgrades.find(upgrade => upgrade.name === upgName);
 
-    if (
-      selectedUpgrade.name === "Engine2" &&
-      this.upgrades.find(upgrade => upgrade.name === "Engine1").bought === false
-    ) {
+    if (selectedUpgrade.name === "Engine2" && userHasUpg("Engine1") === false) {
       alert("Buy previos upgrade first");
       return;
     }
 
-    if (
-      selectedUpgrade.name === "Engine3" &&
-      this.upgrades.find(upgrade => upgrade.name === "Engine2").bought === false
-    ) {
+    if (selectedUpgrade.name === "Engine3" && userHasUpg("Engine2") === false) {
+      alert("Buy previos upgrade first");
+      return;
+    }
+
+    if (selectedUpgrade.name === "Tank2" && userHasUpg("Tank1") === false) {
       alert("Buy previos upgrade first");
       return;
     }
@@ -82,13 +45,17 @@ class Shop {
   }
 
   showUpgradesPage() {
-    this.upgrades.map(upgrade => {
+    upgrades.map(upgrade => {
       $(".shop .upgrades").innerHTML += `
-        <section>
+        <section class="${upgrade.bought ? "bought" : ""}">
           <div class="icon">
-            <img src="./images/${upgrade.name}.png" alt="${upgrade.name}" />
+            <img src="./images/${upgrade.name}.png" title="${
+        upgrade.name
+      }" alt="${upgrade.name}" />
           </div>
-          <div class="description">${upgrade.description}</div>
+          <div class="description" style="font-size: 14px">${
+            upgrade.description
+          }</div>
           <div class="price">${upgrade.price}</div>
           <div class="buy">
             ${
@@ -105,7 +72,7 @@ class Shop {
   }
 
   save() {
-    localStorage.upgrades = JSON.stringify(this);
+    localStorage.upgrades = JSON.stringify(upgrades);
   }
 }
 

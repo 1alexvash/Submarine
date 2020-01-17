@@ -6,11 +6,55 @@
     display: block;
   }
   a {
+    position: relative;
     display: inline-block;
     margin: 5px;
     padding: 5px;
     background: linear-gradient(lighten(deepskyblue, 20%), deepskyblue);
     border-radius: 16px;
+    &.active {
+      .tip {
+        animation: showUp 5s;
+      }
+    }
+    .tip {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate(-15%, -125%);
+      border: 2px solid white;
+      border-radius: 8px;
+      padding: 8px;
+      color: white;
+      background: black;
+      z-index: -1;
+      @keyframes showUp {
+        from {
+          background: black;
+          color: white;
+        }
+        20% {
+          background: white;
+          color: black;
+        }
+        40% {
+          background: black;
+          color: white;
+        }
+        60% {
+          background: white;
+          color: black;
+        }
+        80% {
+          background: black;
+          color: white;
+        }
+        to {
+          background: white;
+          color: black;
+        }
+      }
+    }
     img {
       width: 48px;
     }

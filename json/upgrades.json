@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Axle",
+    "description": "Allows submarine to move backwards and forwards",
+    "bought": false,
+    "price": 20000
+  },
+  {
+    "name": "Engine1",
+    "description": "Increases submarine speed by 33%",
+    "bought": false,
+    "price": 50000
+  },
+  {
+    "name": "Engine2",
+    "description": "Increases submarine speed by aditional 33%",
+    "bought": false,
+    "price": 80000
+  },
+  {
+    "name": "Engine3",
+    "description": "Increases submarine speed by another 33%",
+    "bought": false,
+    "price": 150000
+  },
+  {
+    "name": "Tank1",
+    "description": "Adds one heart to submarine tank",
+    "bought": false,
+    "price": 100000
+  },
+  {
+    "name": "Tank2",
+    "description": "Adds one heart to submarine tank",
+    "bought": false,
+    "price": 200000
+  },
+  {
+    "name": "submarine-dark",
+    "description": "Submarine gets smaller and more agile",
+    "bought": false,
+    "price": 250000
+  }
+]

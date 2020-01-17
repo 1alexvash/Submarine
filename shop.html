@@ -16,7 +16,7 @@
       <div class="upgrades">
         <section>
           <div class="icon">
-            icon
+            Upgrade
           </div>
           <div class="description">Description</div>
           <div class="price">Price</div>
@@ -33,6 +33,7 @@
       </div>
     </div>
 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./js/Helpers.js"></script>
     <script src="./js/Shop.js"></script>
 
@@ -43,7 +44,9 @@
 
       $(".shop .money span").innerHTML = localStorage.score;
 
-      shop.showUpgradesPage();
+      setTimeout(() => {
+        shop.showUpgradesPage();
+      }, 150);
     </script>
   </body>
 </html>

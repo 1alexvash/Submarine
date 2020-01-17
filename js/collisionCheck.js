@@ -41,21 +41,25 @@ function collisionCheck(a, b) {
         objects.splice(objects.indexOf(myObject), 1);
         playSound(coinSound);
         score += 2500;
+        objectsLeftToCollect--;
         break;
-      case "EXTRA_HEART":
+      case "HEART":
         objects.splice(objects.indexOf(myObject), 1);
         playSound(heartSound);
         submarine.hearts++;
         break;
       case "DIAMOND":
         objects.splice(objects.indexOf(myObject), 1);
-        playSound(congratulationsSound);
+        playSound(diamondSound);
         score += 25000;
+        objectsLeftToCollect--;
         break;
       case "TREASURE":
         objects.splice(objects.indexOf(myObject), 1);
         playSound(congratulationsSound);
         score += 100000;
+        levelComplete(game.level);
+        endGame();
         break;
       default:
         break;

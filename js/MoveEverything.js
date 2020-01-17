@@ -18,7 +18,7 @@ function moveSubmarine() {
   }
   if (
     submarine.controllers.arrowRightLocked &&
-    submarine.x < canvas.width - 200
+    submarine.x < canvas.width - 150
   ) {
     submarine.x += submarine.speed;
   }
@@ -30,6 +30,20 @@ function moveObjects() {
   });
 
   if (objects.length > 0) {
-    objects = objects.filter(object => object.x > 0);
+    objects = objects.filter(object => {
+      if (object.x > 0) {
+        return true;
+      } else {
+        const type = object.type;
+        if (
+          type === "ROCK" ||
+          type === "SHARK" ||
+          type === "FIRE" ||
+          type === "BLUE_FIRE"
+        ) {
+          objectsLeftToSurvive--;
+        }
+      }
+    });
   }
 }

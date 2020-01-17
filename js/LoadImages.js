@@ -1,4 +1,4 @@
-const treasureImg = $(".icons .treasure");
+let treasureImg = $(".icons .treasure");
 const fireImg = $(".icons .fire");
 const diamondImg = $(".icons .diamond");
 const coinImg = $(".icons .coin");

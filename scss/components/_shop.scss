@@ -1,30 +1,46 @@
 .shop {
-  background: white;
   font-size: 20px;
   width: 800px;
   margin: auto;
-  padding: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   @include responsive(800px, 800px) {
     display: none;
   }
   .money {
+    background: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
     img {
+      margin: 0 8px;
       width: 20px;
     }
   }
   .upgrades {
     section {
+      background: linear-gradient(white, lightgray);
       border-bottom: 2px solid black;
       padding: 10px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      &:first-child {
+        background: white;
+      }
+      &:last-child {
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+      }
+      &.bought {
+        background: linear-gradient(lightgreen, lighten(green, 10%));
+      }
       &.active {
         background: linear-gradient(green, lightgreen);
       }
       .price,
       .buy {
-        width: 25%;
+        width: 20%;
       }
       .icon {
         width: 10%;
@@ -34,12 +50,13 @@
       }
       .description {
         padding: 0 20px;
-        width: 40%;
-        font-size: 16px;
+        width: 50%;
       }
       .price {
+        text-align: center;
       }
       .buy {
+        text-align: right;
         button {
           cursor: pointer;
           padding: 10px;

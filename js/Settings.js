@@ -7,10 +7,15 @@ class Settings {
   }
 
   getDefaults() {
-    this.sounds = true;
-    this.music = true;
-    this.show_score = true;
-    this.show_units_borders = false;
+    console.log("getting defaults");
+
+    axios.get("/json/settings.json").then(response => {
+      const settings = response.data;
+
+      console.log(settings);
+      Object.keys(settings).map(setting => (this[setting] = settings[setting]));
+      this.save();
+    });
   }
 
   init() {
@@ -38,7 +43,7 @@ class Settings {
 
     $(".settings .restore").onclick = () => {
       this.getDefaults();
-      this.save();
+
       location.reload();
     };
   }

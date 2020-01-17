@@ -7,6 +7,9 @@ function drawEverything() {
     drawSubmarineAndObjectsBorder();
     drawHearts();
     drawScore();
+    drawTime();
+    drawObjectsLeftToSurvive();
+    drawObjectsLeftToCollect();
   }
 }
 
@@ -94,5 +97,75 @@ function drawScore() {
     context.fillStyle = "black";
     context.textAlign = "left";
     context.fillText(`Score ${score}`, 20, 50);
+  }
+}
+
+function getRemainingTime(time) {
+  time = Math.round(time);
+  let seconds = time % 60;
+  if (seconds < 10) seconds = "0" + seconds;
+  let minutes = Math.floor(time / 60);
+  let hours = Math.floor(time / 3600);
+  if (time >= 3600) {
+    minutes = minutes % 60;
+    if (minutes < 10) minutes = "0" + minutes;
+    return `${hours}:${minutes}:${seconds}`;
+  } else {
+    return `${minutes}:${seconds}`;
+  }
+}
+
+function drawTime() {
+  if (game.levelsDuration[game.level] !== null) {
+    context.font = "30px Arial";
+    context.fillStyle = "white";
+    context.textAlign = "left";
+    context.fillText(
+      getRemainingTime(secondsLeft),
+      canvas.width - 75,
+      canvas.height - 25
+    );
+    secondsLeft -= 1 / framesPerSecond;
+
+    if (secondsLeft <= 0) {
+      levelComplete(game.level);
+      endGame();
+    }
+  }
+}
+
+function drawObjectsLeftToSurvive() {
+  if (game.objectsToSurvive[game.level] !== null) {
+    context.font = "30px Arial";
+    context.fillStyle = "white";
+    context.textAlign = "left";
+    context.fillText(
+      `Objects left ${objectsLeftToSurvive}`,
+      canvas.width - 225,
+      canvas.height - 25
+    );
+
+    if (objectsLeftToSurvive <= 0) {
+      levelComplete(game.level);
+      endGame();
+    }
+  }
+}
+
+function drawObjectsLeftToCollect() {
+  if (game.objectsToCollect[game.level] !== null) {
+    context.font = "30px Arial";
+    context.fillStyle = "white";
+    context.textAlign = "left";
+    context.fillText(
+      `Items left to collect: ${objectsLeftToCollect}`,
+      canvas.width - 310,
+      canvas.height - 25
+    );
+  }
+
+  if (objectsLeftToCollect === 0) {
+    levelComplete(game.level);
+    endGame();
   }
 }
