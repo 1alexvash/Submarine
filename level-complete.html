@@ -10,7 +10,7 @@
   </head>
   <body>
     <div class="level-complete">
-      <h1>Level complete!</h1>
+      <h1>Level <span class="level-passed">X</span> complete!</h1>
       <h2>Congragulations</h2>
       <a href="/"
         >Continue <img src="images/arrow-right.png" alt="arrow-right"
@@ -21,5 +21,13 @@
       <div class="before"></div>
       <div class="after"></div>
     </div>
+
+    <script src="js/Helpers.js"></script>
+    <script>
+      const level = window.location.href.charAt(
+        window.location.href.length - 1
+      );
+      $(".level-complete .level-passed").innerHTML = level;
+    </script>
   </body>
 </html>

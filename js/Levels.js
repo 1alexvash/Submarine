@@ -9,13 +9,12 @@ function levelComplete(completedLevel) {
   saveScore();
 
   const newLevel = completedLevel + 2;
-  alert(`new level is ${newLevel}`);
-  if (newLevel > parseInt(localStorage.levelsOpened) && newLevel !== 10) {
+  if (newLevel > parseInt(localStorage.levelsOpened)) {
     localStorage.levelsOpened = newLevel;
-    window.location.href = `${window.location.href}/level-complete-new.html`;
-  } else {
-    window.location.href = `${window.location.href}/level-complete.html`;
   }
+  window.location.href = `${
+    window.location.href
+  }/level-complete.html#${completedLevel + 1}`;
 }
 
 game.totalLevels = 9;
