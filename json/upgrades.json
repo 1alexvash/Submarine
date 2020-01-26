@@ -24,21 +24,33 @@
     "price": 150000
   },
   {
-    "name": "Tank1",
-    "description": "Adds one heart to submarine tank",
+    "name": "Shield1",
+    "description": "Submarine gets 15% chance to block the damage",
     "bought": false,
-    "price": 100000
+    "price": 50000
+  },
+  {
+    "name": "Shield2",
+    "description": "Submarine gets 35% chance to block the damage",
+    "bought": false,
+    "price": 350000
+  },
+  {
+    "name": "Tank1",
+    "description": "Adds one additional heart to submarine tank",
+    "bought": false,
+    "price": 150000
   },
   {
     "name": "Tank2",
-    "description": "Adds one heart to submarine tank",
+    "description": "Adds one extra heart to submarine tank",
     "bought": false,
-    "price": 200000
+    "price": 300000
   },
   {
     "name": "submarine-dark",
     "description": "Submarine gets smaller and more agile",
     "bought": false,
-    "price": 250000
+    "price": 500000
   }
 ]

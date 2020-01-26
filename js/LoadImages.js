@@ -9,3 +9,4 @@ const submarineDarkImg = $(".icons .submarine-dark");
 const rockImg = $(".icons .rock");
 const sharkImg = $(".icons .shark");
 const blueFireImg = $(".icons .blueFire");
+const keyboardArrows = $(".icons .keyboard-arrows");

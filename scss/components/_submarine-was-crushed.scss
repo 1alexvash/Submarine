@@ -1,0 +1,43 @@
+.submarine-was-crushed {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  font-size: 24px;
+  line-height: 36px;
+  text-shadow: 1px 2px 3px #333;
+  width: 320px;
+  .fire {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.4;
+    z-index: -1;
+    animation: fireFade 5s infinite alternate;
+    @keyframes fireFade {
+      from {
+        opacity: 0.2;
+      }
+      50% {
+        opacity: 0.4;
+      }
+      to {
+        opacity: 0;
+      }
+    }
+  }
+  a {
+    display: inline-block;
+    color: deepskyblue;
+    border: 2px dotted white;
+    padding: 5px 10px;
+    transition: 0.7s;
+    &:hover {
+      border: 2px solid white;
+      background: black;
+    }
+  }
+}

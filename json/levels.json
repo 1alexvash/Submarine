@@ -18,7 +18,7 @@
   [
     {
       "type": "ROCK",
-      "frequencyPerSecond": 0.5714285714285714,
+      "frequencyPerSecond": 0.65,
       "img": "rockImg",
       "speed": [3, 6]
     },
@@ -44,7 +44,7 @@
     },
     {
       "type": "HEART",
-      "frequencyPerSecond": 0.022222222222222223,
+      "frequencyPerSecond": 0.04,
       "img": "heartImg",
       "speed": [3, 6]
     }
@@ -132,7 +132,7 @@
       "type": "BLUE_FIRE",
       "frequencyPerSecond": 1,
       "img": "blueFireImg",
-      "speed": [6, 12]
+      "speed": [8, 12]
     },
     {
       "type": "COIN",
@@ -164,7 +164,7 @@
       "type": "BLUE_FIRE",
       "frequencyPerSecond": 0.8,
       "img": "blueFireImg",
-      "speed": [6, 12]
+      "speed": [8, 12]
     },
     {
       "type": "HEART",

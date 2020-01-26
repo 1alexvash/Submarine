@@ -2,6 +2,7 @@
   position: fixed;
   right: 20px;
   bottom: 20px;
+  display: none;
   &.active {
     display: block;
   }
@@ -12,9 +13,10 @@
     padding: 5px;
     background: linear-gradient(lighten(deepskyblue, 20%), deepskyblue);
     border-radius: 16px;
-    &.active {
+    &.showtip {
       .tip {
         animation: showUp 5s;
+        display: block;
       }
     }
     .tip {
@@ -28,6 +30,7 @@
       color: white;
       background: black;
       z-index: -1;
+      display: none;
       @keyframes showUp {
         from {
           background: black;
@@ -55,7 +58,7 @@
         }
       }
     }
-    img {
+    > img {
       width: 48px;
     }
   }

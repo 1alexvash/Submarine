@@ -6,18 +6,21 @@ if (localStorage.levelsOpened === undefined) {
 }
 
 function levelComplete(completedLevel) {
+  saveScore();
+
   const newLevel = completedLevel + 2;
-  if (newLevel > parseInt(localStorage.levelsOpened)) {
+  alert(`new level is ${newLevel}`);
+  if (newLevel > parseInt(localStorage.levelsOpened) && newLevel !== 10) {
     localStorage.levelsOpened = newLevel;
+    window.location.href = `${window.location.href}/level-complete-new.html`;
+  } else {
+    window.location.href = `${window.location.href}/level-complete.html`;
   }
-  window.location.href = `${window.location.href}/level-complete.html`;
 }
 
 game.totalLevels = 9;
 
-game.levelsDuration = [30, 120, null, 180, null, 240, null, null, null];
-// level 3 is to collect 3 coins!!!
-// update it @@@ to null
+game.levelsDuration = [30, 100, null, 180, null, 240, null, null, null];
 game.objectsToSurvive = [null, null, null, null, 100, null, null, 200, null];
 game.objectsToCollect = [null, null, 5, null, null, null, 3, null, null, null];
 

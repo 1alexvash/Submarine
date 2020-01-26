@@ -129,7 +129,6 @@ function drawTime() {
 
     if (secondsLeft <= 0) {
       levelComplete(game.level);
-      endGame();
     }
   }
 }
@@ -147,7 +146,6 @@ function drawObjectsLeftToSurvive() {
 
     if (objectsLeftToSurvive <= 0) {
       levelComplete(game.level);
-      endGame();
     }
   }
 }
@@ -166,6 +164,5 @@ function drawObjectsLeftToCollect() {
 
   if (objectsLeftToCollect === 0) {
     levelComplete(game.level);
-    endGame();
   }
 }

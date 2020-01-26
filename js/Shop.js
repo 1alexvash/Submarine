@@ -19,21 +19,6 @@ class Shop {
   buyUpg(upgName) {
     const selectedUpgrade = upgrades.find(upgrade => upgrade.name === upgName);
 
-    if (selectedUpgrade.name === "Engine2" && userHasUpg("Engine1") === false) {
-      alert("Buy previos upgrade first");
-      return;
-    }
-
-    if (selectedUpgrade.name === "Engine3" && userHasUpg("Engine2") === false) {
-      alert("Buy previos upgrade first");
-      return;
-    }
-
-    if (selectedUpgrade.name === "Tank2" && userHasUpg("Tank1") === false) {
-      alert("Buy previos upgrade first");
-      return;
-    }
-
     if (localStorage.score >= selectedUpgrade.price) {
       localStorage.score = parseInt(localStorage.score) - selectedUpgrade.price;
       selectedUpgrade.bought = true;
@@ -44,10 +29,25 @@ class Shop {
     }
   }
 
+  checkWhatItemsAvailable() {
+    if (!userHasUpg("Engine1")) {
+      $(".shop .upgrades section.Engine2").classList += "disabled";
+    }
+    if (!userHasUpg("Engine2")) {
+      $(".shop .upgrades section.Engine3").classList += "disabled";
+    }
+    if (!userHasUpg("Tank1")) {
+      $(".shop .upgrades section.Tank2").classList += "disabled";
+    }
+    if (!userHasUpg("Shield1")) {
+      $(".shop .upgrades section.Shield2").classList += "disabled";
+    }
+  }
+
   showUpgradesPage() {
     upgrades.map(upgrade => {
       $(".shop .upgrades").innerHTML += `
-        <section class="${upgrade.bought ? "bought" : ""}">
+        <section class="${upgrade.name} ${upgrade.bought ? "bought" : ""}">
           <div class="icon">
             <img src="./images/${upgrade.name}.png" title="${
         upgrade.name
@@ -56,7 +56,10 @@ class Shop {
           <div class="description" style="font-size: 14px">${
             upgrade.description
           }</div>
-          <div class="price">${upgrade.price}</div>
+          <div class="price">${upgrade.price
+            .toLocaleString()
+            .split(",")
+            .join(" ")}</div>
           <div class="buy">
             ${
               upgrade.bought
@@ -69,6 +72,8 @@ class Shop {
         </section>
     `;
     });
+
+    this.checkWhatItemsAvailable();
   }
 
   save() {

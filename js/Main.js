@@ -21,12 +21,23 @@ function upgradesCheck() {
   });
 
   if (!userHasAnyUpg) {
-    console.log("Animation to go to shop");
-    $(".menu [title='Shop']").classList += " active";
+    $(".menu a[title='Shop']").classList += " showtip";
+
+    if (Math.random() > 0.5) {
+      $(
+        ".menu .tip"
+      ).innerHTML = `Let's buy an <img src="./images/Axle.png" width="20px" height="20px" title="Axle" alt="Axle"> axle`;
+      $(".menu .tip").style.background = "white";
+      $(".menu .tip").style.color = "black";
+      $(".menu .tip").style.width = "100px";
+      $(".menu .tip").style.animation = "none";
+    }
   }
 }
 
-upgradesCheck();
+if (localStorage.gameLoaded !== undefined) {
+  upgradesCheck();
+}
 
 function showMenu() {
   menu.classList += " active";
@@ -47,6 +58,23 @@ function renderHomeScreen() {
   context.fillStyle = "black";
   context.textAlign = "center";
   context.fillText("Click To Start", canvas.width / 2, canvas.height / 2);
+
+  context.font = "14px Arial";
+  context.fillStyle = "black";
+  context.textAlign = "center";
+  context.fillText(
+    "Tip: use keyboard controllers to navigate the submarine",
+    canvas.width / 2,
+    canvas.height - 50
+  );
+
+  context.drawImage(
+    keyboardArrows,
+    canvas.width / 2 - keyboardArrows.width / 2,
+    canvas.height / 2 - keyboardArrows.height / 2 + 110,
+    keyboardArrows.width,
+    keyboardArrows.height
+  );
 }
 
 window.onload = function() {
@@ -54,6 +82,7 @@ window.onload = function() {
 
   canvas.addEventListener("click", function() {
     if (playing === false) {
+      hideMenu();
       startGame();
     }
   });
@@ -137,6 +166,17 @@ function updateScore(newScore) {
   localStorage.score = newScore;
 }
 
+function saveScore() {
+  if (localStorage.score === undefined) {
+    updateScore(score);
+  } else {
+    const newScore = parseInt(localStorage.score) + score;
+    updateScore(newScore);
+  }
+
+  score = 0;
+}
+
 function endGame() {
   playing = false;
 
@@ -144,20 +184,19 @@ function endGame() {
 
   stopMusic();
 
-  if (localStorage.score === undefined) {
-    updateScore(score);
-  } else {
-    const newScore = parseInt(localStorage.score) + score;
-    updateScore(newScore);
-  }
-  score = 0;
-
-  showMenu();
-
-  $(".levels").style.display = "block";
-  canvas.style.display = "none";
+  saveScore();
 
   objects = [];
 
-  renderHomeScreen();
+  canvas.style.display = "none";
+
+  if (settings.show_crushing_page) {
+    window.location.href = `${window.location.href}/submarine-was-crushed.html`;
+  } else {
+    showMenu();
+
+    $(".levels").style.display = "flex";
+
+    renderHomeScreen();
+  }
 }

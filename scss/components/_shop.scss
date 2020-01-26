@@ -25,6 +25,14 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      &.disabled {
+        .buy {
+          button {
+            pointer-events: none;
+            background: linear-gradient(grey, lightgray);
+          }
+        }
+      }
       &:first-child {
         background: white;
       }
@@ -63,6 +71,20 @@
           border: 2px solid black;
           background: linear-gradient(green, lightgreen);
         }
+      }
+    }
+  }
+  .homepage {
+    margin-top: 20px;
+    text-align: center;
+    a {
+      border: 2px dotted white;
+      padding: 5px 10px;
+      font-size: 24px;
+      color: white;
+      transition: 0.7s;
+      &:hover {
+        border: 2px solid white;
       }
     }
   }
