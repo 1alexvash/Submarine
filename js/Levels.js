@@ -14,7 +14,7 @@ function levelComplete(completedLevel) {
   }
   window.location.href = `${
     window.location.href
-  }/level-complete.html#${completedLevel + 1}`;
+  }level-complete.html#${completedLevel + 1}`;
 }
 
 game.totalLevels = 9;

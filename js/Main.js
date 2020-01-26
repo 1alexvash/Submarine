@@ -191,7 +191,7 @@ function endGame() {
   canvas.style.display = "none";
 
   if (settings.show_crushing_page) {
-    window.location.href = `${window.location.href}/submarine-was-crushed.html`;
+    window.location.href = `${window.location.href}submarine-was-crushed.html`;
   } else {
     showMenu();
 
