@@ -7,7 +7,7 @@ class Settings {
   }
 
   getDefaults() {
-    axios.get("/json/settings.json").then(response => {
+    axios.get("json/settings.json").then(response => {
       const settings = response.data;
 
       Object.keys(settings).map(setting => (this[setting] = settings[setting]));

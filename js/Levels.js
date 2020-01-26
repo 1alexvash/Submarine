@@ -45,7 +45,7 @@ function initiateGame(level) {
   canvas.style.display = "block";
 }
 
-axios.get("/json/levels.json").then(data => {
+axios.get("json/levels.json").then(data => {
   game.levels = data.data;
   game.levels.map(level => level.map(item => (item.img = eval(item.img))));
 });

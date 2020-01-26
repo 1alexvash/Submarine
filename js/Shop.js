@@ -2,7 +2,7 @@ let upgrades;
 
 class Shop {
   getDefaults() {
-    axios.get("/json/upgrades.json").then(data => {
+    axios.get("json/upgrades.json").then(data => {
       upgrades = data.data;
       this.save();
     });
