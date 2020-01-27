@@ -182,7 +182,7 @@
       "type": "TREASURE",
       "frequencyPerSecond": 0.00666666666,
       "img": "treasureImg",
-      "speed": [3, 3]
+      "speed": [1, 1]
     }
   ]
 ]

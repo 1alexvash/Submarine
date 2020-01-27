@@ -36,3 +36,18 @@
     }
   }
 }
+
+.settings-homepage {
+  margin-top: 20px;
+  text-align: center;
+  a {
+    border: 2px dotted white;
+    padding: 5px 10px;
+    font-size: 24px;
+    color: white;
+    transition: 0.7s;
+    &:hover {
+      border: 2px solid white;
+    }
+  }
+}

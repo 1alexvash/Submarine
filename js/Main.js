@@ -47,7 +47,10 @@ function hideMenu() {
   menu.classList.remove("active");
 }
 
-const framesPerSecond = 30;
+let framesPerSecond = 30;
+if (settings.fast_mode) {
+  framesPerSecond = 40;
+}
 
 let objects = [];
 

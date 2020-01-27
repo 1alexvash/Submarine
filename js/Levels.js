@@ -6,6 +6,7 @@ if (localStorage.levelsOpened === undefined) {
 }
 
 function levelComplete(completedLevel) {
+  clearInterval(timer);
   saveScore();
 
   const newLevel = completedLevel + 2;

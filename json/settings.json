@@ -3,5 +3,6 @@
   "music": true,
   "show_score": true,
   "show_units_borders": false,
-  "show_crushing_page": true
+  "show_crushing_page": true,
+  "fast_mode": false
 }

@@ -139,7 +139,7 @@ function drawObjectsLeftToSurvive() {
     context.fillStyle = "white";
     context.textAlign = "left";
     context.fillText(
-      `Objects left ${objectsLeftToSurvive}`,
+      `Objects left: ${objectsLeftToSurvive}`,
       canvas.width - 225,
       canvas.height - 25
     );
