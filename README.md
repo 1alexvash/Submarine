@@ -1,5 +1,5 @@
 # Submarine
-## Explore an exciting underwater worlds in an unforgettable journey
+## Explore an exciting underwater world in the unforgettable journey
 
 ![Loading page](https://i.imgur.com/HTkrMvq.png)
 ![Choosing a level](https://i.imgur.com/QoHK5Qh.png)
