@@ -1,6 +1,6 @@
 .mobile-warning {
   display: none;
-  @include responsive(800px, 800px) {
+  @include responsive(960px) {
     display: block;
     position: fixed;
     top: 0;
